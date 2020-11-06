@@ -57,18 +57,37 @@ def binary_to_decimal(binary):
 def decimal_to_binary(decimal):
     # decimal is an integer value
     # binary is a tuple of length 8 that contains 1's and 0's
+    binary = 0
+    checklist = []
 
-    return binary
+    for i in range(0,8):
+        ans = (decimal - (128 / (2**i)))
+        print(ans)
+        
+        if ans < 0:
+            checklist.append(0)
+
+        else:
+            checklist.append(1)
+        
+    return checklist
     
 
 def get_binary():
     # function should read the entry widget and generate an integer
     # this integer will be used as an input parameter for decimal to binary and the result updated
     # in the 8 checkboxes
+    decimal = int(e1.get())
 
     binary = decimal_to_binary(decimal)
-
-    
+    state8 = binary[0]
+    state7 = binary[1]
+    state6 = binary[2]
+    state5 = binary[3]
+    state4 = binary[4]
+    state3 = binary[5]
+    state2 = binary[6]
+    state1 = binary[7]
 
 
 def get_decimal():
