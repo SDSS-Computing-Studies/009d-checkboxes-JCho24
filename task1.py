@@ -59,17 +59,22 @@ def decimal_to_binary(decimal):
     # binary is a tuple of length 8 that contains 1's and 0's
     binary = 0
     checklist = []
-
+    ans = 0
+    
     for i in range(0,8):
+    
         ans = (decimal - (128 / (2**i)))
         print(ans)
         
-        if ans < 0:
-            checklist.append(0)
+        if ans >= 0:
+            checklist.append(1)
+            decimal = ans
 
         else:
-            checklist.append(1)
-        
+            checklist.append(0)
+            decimal = decimal
+    
+    print(checklist)
     return checklist
     
 
@@ -80,14 +85,14 @@ def get_binary():
     decimal = int(e1.get())
 
     binary = decimal_to_binary(decimal)
-    state8 = binary[0]
-    state7 = binary[1]
-    state6 = binary[2]
-    state5 = binary[3]
-    state4 = binary[4]
-    state3 = binary[5]
-    state2 = binary[6]
-    state1 = binary[7]
+    state8.set(binary[7])
+    state7.set(binary[6])
+    state6.set(binary[5]) 
+    state5.set(binary[4])
+    state4.set(binary[3])
+    state3.set(binary[2])
+    state2.set(binary[1])
+    state1.set(binary[0])
 
 
 def get_decimal():
